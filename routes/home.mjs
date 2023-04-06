@@ -13,6 +13,7 @@ routes.post("/push/:filename", async (req, res) => {
     size: result.size,
   };
   const data = await mainRepo.postData(object);
+  console.log(result);
   res.send(data);
 });
 
