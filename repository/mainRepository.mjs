@@ -18,4 +18,14 @@ const getAllData = () => {
   return data;
 };
 
-export default { postData, getAllData };
+const getByName = async (_name) => {
+  const data = await Data.find().where("name").equals(_name);
+  return data;
+};
+
+const deleteData = async (_cid) => {
+  const result = await Data.deleteMany().where("cid").equals(_cid);
+  return result;
+};
+
+export default { postData, getAllData, getByName, deleteData };
