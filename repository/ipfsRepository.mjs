@@ -15,4 +15,21 @@ const removeData = async (_cid) => {
   return result;
 };
 
+/* Test functions */
+
+const addPinOnPinata = async () => {
+  await ipfs.pin.remote.service.add("pinata", {
+    endpoint: new URL("https://api.pinata.cloud"),
+    key: process.env.JWT,
+  });
+};
+
+const removePinata = async () => {
+  await ipfs.pin.remote.service.rm("pinata");
+};
+
+const addOnAllRemotes = async (_cid) => {
+  ipfs.pin.remote.add(_cid);
+};
+
 export default { postData, removeData };
